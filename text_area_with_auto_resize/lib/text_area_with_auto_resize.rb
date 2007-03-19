@@ -10,5 +10,16 @@ module ActionView
       end
       alias_method_chain :text_area, :auto_resize
     end
+    
+    module FormTagHelper
+      def text_area_tag_with_auto_resize(name, content = nil, options = {})
+        auto_resize_options = {}
+        auto_resize_options[:rows] = 1
+        auto_resize_options[:onKeyPress] = "if (this.scrollHeight > this.clientHeight && !window.opera)\nthis.rows += 1;"
+        auto_resize_options.merge!(options)
+        text_area_tag_without_auto_resize name, content, auto_resize_options
+      end
+      alias_method_chain :text_area_tag, :auto_resize
+    end
   end
 end
