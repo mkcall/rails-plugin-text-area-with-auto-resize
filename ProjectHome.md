@@ -1,0 +1,10 @@
+# Description #
+Overrides `ActionView::Helpers::FormHelper::text_area` to provide auto resizing/growing of text areas.
+
+# Install #
+`script/plugin install -x http://rails-plugin-text-area-with-auto-resize.googlecode.com/svn/trunk/text_area_with_auto_resize`
+
+# Use #
+Use `text_area` and `text_area_tag` just as before, no refactoring required.  And since method chaining is utilized you still have access to the old `text_area` via `text_area_without_auto_resize` or you can override the options by passing in `:rows => 1, :onKeyPress => nil`.
+
+Enjoy.
